@@ -1,33 +1,79 @@
 let STORE = {
- lat: 38.889651,
- lng: -77.03525,
+    lat: 38.889651,
+    lng: -77.03525,
+    map: ''
 }
 
-
+let apiKey = 'AIzaSyDslPaSzuA4uilxgpLWhF9dF8tFhD9cnpM'
 
 function initMap() {
-    var options = {  
-        zoom: 3, 
+    let options = {
+        zoom: 3,
         mapTypeControlOptions: false,
-        center: {lat: STORE.lat, lng: STORE.lng},
+        center: {
+            lat: STORE.lat,
+            lng: STORE.lng
+        },
         disableDefaultUI: true,
         scaleControl: true,
         zoomControl: true,
         zoomControlOptions: {
-        style: google.maps.ZoomControlStyle.SMALL
-        }}
-    map = new google.maps.Map(document.getElementById('map'), (options)); 
+            style: google.maps.ZoomControlStyle.SMALL
+        }
     }
-
-    function autoSearch () {
-        let input = document.getElementByID('pac-input');
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        var autocomplete = new google.maps.places.Autocomplete(input, options)
-    }
-
-function renderDoc () {
-    initMap()
-    autoSearch()
+    STORE.map = new google.maps.Map(document.getElementById('map'), (options));
 }
 
-   $(renderDoc)
+function createSearch() {
+    let options = {
+        types: ['(cities)'],
+        componentRestrictions: {
+            country: "us"
+        }
+    };
+    let input = document.getElementById('pac-input');
+    let autocomplete = new google.maps.places.Autocomplete(input, (options))
+
+    autocomplete.addListener('place_changed', onPlaceChanged);
+
+    function onPlaceChanged() {
+        var place = autocomplete.getPlace();
+        if (place.geometry) {
+            STORE.map.panTo(place.geometry.location);
+            STORE.map.setZoom(15);
+            getLatLong(place)
+        } else {
+           document.getElementById('pac-input').placeholder = 'Enter a city';
+        }
+    }
+}
+
+function getLatLong(place) {
+    STORE.lat = place.geometry.location.lat();
+    STORE.long = place.geometry.location.lng();
+    console.log(STORE)
+}
+
+function getResults () {
+    fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${apiKey}&location=${STORE.lat},${STORE.lng}&radius=48280&keyword=hookah`)
+    .then(response => {
+        console.log(response)
+    })}
+
+
+function watchForm() {
+$('form').submit(event => {
+    event.preventDefault;
+    getResults()
+    })}
+
+
+function renderDoc() {
+    initMap()
+    createSearch()
+    watchForm()
+}
+
+
+
+$(renderDoc)
