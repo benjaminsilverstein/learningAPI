@@ -12,12 +12,15 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-<h1>My Map</h1>
-        <div id="map">
-        </div>
-
+        <header>
+                <h1>My Map</h1>
+        </header>
+        <main>
+        <section class="search"><input type="text" id="pac-input" class="controls" placeholder="Search cities and states here"></section>
+        <section class="map-section"><div id="map"></div></section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDslPaSzuA4uilxgpLWhF9dF8tFhD9cnpM&libraries=geometry,places"  async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDslPaSzuA4uilxgpLWhF9dF8tFhD9cnpM&libraries=geometry,places"></script>
         <script src="index.js" async defer></script>
+    </main>
     </body>
 </html>
