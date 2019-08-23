@@ -1,7 +1,9 @@
 let STORE = {
     lat: 38.889651,
     lng: -77.03525,
-    map: ''
+    map: '',
+    hookahEstabs: '',
+    bars:''
 }
 
 let apiKey = 'AIzaSyDslPaSzuA4uilxgpLWhF9dF8tFhD9cnpM'
@@ -42,6 +44,7 @@ function createSearch() {
             STORE.map.panTo(place.geometry.location);
             STORE.map.setZoom(15);
             getLatLong(place)
+            getResults()
         } else {
            document.getElementById('pac-input').placeholder = 'Enter a city';
         }
@@ -55,23 +58,33 @@ function getLatLong(place) {
 }
 
 function getResults () {
-    fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${apiKey}&location=${STORE.lat},${STORE.lng}&radius=48280&keyword=hookah`)
-    .then(response => {
-        console.log(response)
-    })}
+    var originalURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${apiKey}&location=${STORE.lat},${STORE.lng}&radius=48280&keyword=hookah&`;
+    var queryURL = "https://cors-anywhere.herokuapp.com/" + originalURL
+    fetch(queryURL)
+        .then(response => response.json())
+        .then(res => {
+            
+        })
+       
+        console.log(STORE)
+}
+
+
+    
+
 
 
 function watchForm() {
 $('form').submit(event => {
-    event.preventDefault;
+    event.preventDefault();
     getResults()
-    })}
+   })}
 
 
 function renderDoc() {
     initMap()
     createSearch()
-    watchForm()
+   watchForm()
 }
 
 
