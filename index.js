@@ -1,6 +1,6 @@
 let STORE = {
-    lat: 38.889651,
-    lng: -77.03525,
+    lat: '',
+    lng: '',
     map: '',
     hookahEstabs: '',
     bars:''
@@ -10,11 +10,11 @@ let apiKey = 'AIzaSyDslPaSzuA4uilxgpLWhF9dF8tFhD9cnpM'
 
 function initMap() {
     let options = {
-        zoom: 3,
+        zoom: 9,
         mapTypeControlOptions: false,
         center: {
-            lat: STORE.lat,
-            lng: STORE.lng
+            lat: 38.889651,
+            lng: -77.03525,
         },
         disableDefaultUI: true,
         scaleControl: true,
@@ -43,8 +43,7 @@ function createSearch() {
         if (place.geometry) {
             STORE.map.panTo(place.geometry.location);
             STORE.map.setZoom(15);
-            getLatLong(place)
-            getResults()
+            getLatLong(place);
         } else {
            document.getElementById('pac-input').placeholder = 'Enter a city';
         }
@@ -53,38 +52,34 @@ function createSearch() {
 
 function getLatLong(place) {
     STORE.lat = place.geometry.location.lat();
-    STORE.long = place.geometry.location.lng();
+    STORE.lng = place.geometry.location.lng();
     console.log(STORE)
 }
 
 function getResults () {
-    var originalURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${apiKey}&location=${STORE.lat},${STORE.lng}&radius=48280&keyword=hookah&`;
+    var originalURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${apiKey}&location=${STORE.lat},${STORE.lng}&radius=48280&keyword=hookah&opennow=true`;
     var queryURL = "https://cors-anywhere.herokuapp.com/" + originalURL
     fetch(queryURL)
         .then(response => response.json())
-        .then(res => {
-            
-        })
-       
-        console.log(STORE)
+        .then(res => { 
+            STORE.bars = res.results.filter((result) => {
+            return result.types.indexOf('store') == -1;
+        })})
+        console.log(STORE.bars)
 }
-
-
-    
-
 
 
 function watchForm() {
 $('form').submit(event => {
-    event.preventDefault();
-    getResults()
-   })}
+ event.preventDefault();
+getResults()
+})}
 
 
 function renderDoc() {
     initMap()
     createSearch()
-   watchForm()
+    watchForm()
 }
 
 
