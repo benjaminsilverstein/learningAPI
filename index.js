@@ -442,7 +442,7 @@ function renderResults (place) {
     <p><span class="key">Phone: </span>${place.formatted_phone_number}</p>
     <p><span class="key">Hours:</span> ${place.weekday_text}</p>
     <p><span class="key">Rating:</span>${place.rating}.</p>
-    <div><a class="website-button" href="${place.website} target="_blank">Visit website</a></div>
+    <div><a class="website-button" href="${place.website}" target="_blank">Visit website</a></div>
 </div></div>`)
     }
 
@@ -467,6 +467,7 @@ function renderResults (place) {
             $('.results-container').empty()
         }
         else if (place.geometry) {
+            $('.lil-error').hide()
             STORE.map.panTo(place.geometry.location);
             STORE.map.setZoom(9);
             getLatLong(place);
@@ -486,9 +487,9 @@ $('form').submit(event => {
     event.preventDefault();
      STORE.lat = ''
     STORE.lng = ''
-var place = STORE.autocomplete.getPlace();
- shiftMap()
-        $('.lil-error').hide()
+ var place = STORE.autocomplete.getPlace();
+
+ shiftMap()      
 })}
 
 
