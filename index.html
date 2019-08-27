@@ -10,26 +10,33 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600|Roboto+Slab:700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-                <h1>My Map</h1>
-        </header>
         <main>
-        <section class="searchandmap">
             <section class="search">
+                <h1>Where can you smoke shisha right now?</h1>
                 <form>
-                    <input type="text" id="pac-input" class="findbars" placeholder="Search cities and states here">
-                    <button type="submit">Submit</button>
+                    <input type="text" id="pac-input" class="findbars" placeholder="Enter city">
+                    <button type="submit">Go</button>
+                    <p class="lil-error">Please select an item from the autocomplete list.</p>
                 </form>
                 <P class="#js-error-message"></P>
                 </section>
-            <section class="map-section"><div id="map"></div></section>
-        </section>    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDslPaSzuA4uilxgpLWhF9dF8tFhD9cnpM&libraries=geometry,places"></script>
-        <script src="index.js" async defer></script>
-        <section class="more">Here's some info!</section>
+            <section class="map-section"><div id="map">
+            </div><h2 class="err notOpen-js"></h2></section>
+       
+        <section class="more">
+            <h2 class="more-info"><span class="background">Here's what's open</span></h2>
+            <div class="results-container">
+                </div>
+                
+        </section>
+
     </main>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDslPaSzuA4uilxgpLWhF9dF8tFhD9cnpM&libraries=geometry,places"></script>
+    <script src="index.js" async defer></script>
     </body>
 </html>
