@@ -3,10 +3,10 @@ let STORE = {
     lng: '',
     map: '',
     hookahEstabs: '',
-    bars:'',
-    barsInfo:'',
-    autocomplete:'',
-    marker:''
+    bars: '',
+    barsInfo: '',
+    autocomplete: '',
+    marker: ''
 }
 
 let apiKey = 'AIzaSyDslPaSzuA4uilxgpLWhF9dF8tFhD9cnpM'
@@ -25,21 +25,17 @@ function initMap() {
         zoomControlOptions: {
             style: google.maps.ZoomControlStyle.SMALL
         },
-        styles: [
-            {
+        styles: [{
                 "featureType": "all",
                 "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#ffffff"
-                    }
-                ]
+                "stylers": [{
+                    "color": "#ffffff"
+                }]
             },
             {
                 "featureType": "all",
                 "elementType": "labels.text.fill",
-                "stylers": [
-                    {
+                "stylers": [{
                         "gamma": 0.01
                     },
                     {
@@ -50,8 +46,7 @@ function initMap() {
             {
                 "featureType": "all",
                 "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
+                "stylers": [{
                         "saturation": -31
                     },
                     {
@@ -68,26 +63,21 @@ function initMap() {
             {
                 "featureType": "all",
                 "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
+                "stylers": [{
+                    "visibility": "off"
+                }]
             },
             {
                 "featureType": "administrative.locality",
                 "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#050505"
-                    }
-                ]
+                "stylers": [{
+                    "color": "#050505"
+                }]
             },
             {
                 "featureType": "administrative.locality",
                 "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
+                "stylers": [{
                         "color": "#fef3f3"
                     },
                     {
@@ -98,8 +88,7 @@ function initMap() {
             {
                 "featureType": "administrative.neighborhood",
                 "elementType": "labels.text.fill",
-                "stylers": [
-                    {
+                "stylers": [{
                         "color": "#0a0a0a"
                     },
                     {
@@ -110,8 +99,7 @@ function initMap() {
             {
                 "featureType": "administrative.neighborhood",
                 "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
+                "stylers": [{
                         "color": "#fffbfb"
                     },
                     {
@@ -125,8 +113,7 @@ function initMap() {
             {
                 "featureType": "landscape",
                 "elementType": "geometry",
-                "stylers": [
-                    {
+                "stylers": [{
                         "lightness": 30
                     },
                     {
@@ -137,26 +124,21 @@ function initMap() {
             {
                 "featureType": "poi",
                 "elementType": "geometry",
-                "stylers": [
-                    {
-                        "saturation": 20
-                    }
-                ]
+                "stylers": [{
+                    "saturation": 20
+                }]
             },
             {
                 "featureType": "poi.attraction",
                 "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
+                "stylers": [{
+                    "visibility": "off"
+                }]
             },
             {
                 "featureType": "poi.park",
                 "elementType": "geometry",
-                "stylers": [
-                    {
+                "stylers": [{
                         "lightness": 20
                     },
                     {
@@ -167,8 +149,7 @@ function initMap() {
             {
                 "featureType": "road",
                 "elementType": "geometry",
-                "stylers": [
-                    {
+                "stylers": [{
                         "lightness": 10
                     },
                     {
@@ -179,8 +160,7 @@ function initMap() {
             {
                 "featureType": "road",
                 "elementType": "geometry.stroke",
-                "stylers": [
-                    {
+                "stylers": [{
                         "saturation": 25
                     },
                     {
@@ -191,8 +171,7 @@ function initMap() {
             {
                 "featureType": "road.highway",
                 "elementType": "geometry.fill",
-                "stylers": [
-                    {
+                "stylers": [{
                         "visibility": "on"
                     },
                     {
@@ -203,17 +182,14 @@ function initMap() {
             {
                 "featureType": "road.highway",
                 "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#292929"
-                    }
-                ]
+                "stylers": [{
+                    "color": "#292929"
+                }]
             },
             {
                 "featureType": "road.highway",
                 "elementType": "labels.text.fill",
-                "stylers": [
-                    {
+                "stylers": [{
                         "visibility": "on"
                     },
                     {
@@ -224,8 +200,7 @@ function initMap() {
             {
                 "featureType": "road.highway",
                 "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
+                "stylers": [{
                         "visibility": "on"
                     },
                     {
@@ -236,8 +211,7 @@ function initMap() {
             {
                 "featureType": "road.highway",
                 "elementType": "labels.icon",
-                "stylers": [
-                    {
+                "stylers": [{
                         "visibility": "simplified"
                     },
                     {
@@ -257,8 +231,7 @@ function initMap() {
             {
                 "featureType": "road.arterial",
                 "elementType": "geometry.fill",
-                "stylers": [
-                    {
+                "stylers": [{
                         "visibility": "on"
                     },
                     {
@@ -269,8 +242,7 @@ function initMap() {
             {
                 "featureType": "road.arterial",
                 "elementType": "geometry.stroke",
-                "stylers": [
-                    {
+                "stylers": [{
                         "visibility": "off"
                     },
                     {
@@ -281,8 +253,7 @@ function initMap() {
             {
                 "featureType": "road.arterial",
                 "elementType": "labels.text.fill",
-                "stylers": [
-                    {
+                "stylers": [{
                         "visibility": "on"
                     },
                     {
@@ -296,8 +267,7 @@ function initMap() {
             {
                 "featureType": "road.arterial",
                 "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
+                "stylers": [{
                         "visibility": "on"
                     },
                     {
@@ -311,17 +281,14 @@ function initMap() {
             {
                 "featureType": "road.local",
                 "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#d0d0d0"
-                    }
-                ]
+                "stylers": [{
+                    "color": "#d0d0d0"
+                }]
             },
             {
                 "featureType": "road.local",
                 "elementType": "geometry.stroke",
-                "stylers": [
-                    {
+                "stylers": [{
                         "lightness": "2"
                     },
                     {
@@ -335,33 +302,27 @@ function initMap() {
             {
                 "featureType": "road.local",
                 "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#383838"
-                    }
-                ]
+                "stylers": [{
+                    "color": "#383838"
+                }]
             },
             {
                 "featureType": "road.local",
                 "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "color": "#faf8f8"
-                    }
-                ]
+                "stylers": [{
+                    "color": "#faf8f8"
+                }]
             },
             {
                 "featureType": "water",
                 "elementType": "all",
-                "stylers": [
-                    {
-                        // "lightness": -20
-                        color:  "#f55158"
-                    }
-                ]
+                "stylers": [{
+                    // "lightness": -20
+                    color: "#f55158"
+                }]
             }
         ]
-        
+
     }
     STORE.map = new google.maps.Map(document.getElementById('map'), (options));
 }
@@ -374,7 +335,8 @@ function createSearch() {
         }
     };
     let input = document.getElementById('pac-input');
-     STORE.autocomplete = new google.maps.places.Autocomplete(input, (options))}
+    STORE.autocomplete = new google.maps.places.Autocomplete(input, (options))
+}
 
 
 function getLatLong(place) {
@@ -383,114 +345,121 @@ function getLatLong(place) {
     console.log(STORE)
 }
 
-function getResults () {
+function getResults() {
     var originalURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${apiKey}&location=${STORE.lat},${STORE.lng}&radius=48280&keyword=hookah&opennow=true`;
     var queryURL = "https://cors-anywhere.herokuapp.com/" + originalURL
     fetch(queryURL)
         .then(response => response.json())
-        .then(res => { 
+        .then(res => {
             STORE.bars = res.results.filter((result) => {
-            return result.types.indexOf('store') == -1;
+                return result.types.indexOf('store') == -1;
+            })
+            console.log(STORE.bars);
+            if (STORE.bars.length < 1) {
+                $('.notOpen-js').html(`<span class="background">Sorry! Doesn't appear any hookah bars are open in your area right now.</span>`);
+                $('.results-container').empty()
+            } else {
+                $('.notOpen-js').empty()
+                createMarkers()
+                getDetails()
+
+            }
+
         })
-        console.log(STORE.bars);
-        if (STORE.bars.length < 1) {
-            $('.notOpen-js').html(`<span class="background">Sorry! Doesn't appear any hookah bars are open in your area right now.</span>`);
-            $('.results-container').empty()  
-    } else {
-        $('.notOpen-js').empty()
-        createMarkers()
-        getDetails()
-
-    }
-
-    })
 }
 
 function createMarkers() {
-    for (let i=0; i < STORE.bars.length; i++)
-    {
-   STORE.marker = new google.maps.Marker({
-        position: STORE.bars[i].geometry.location,
-        map: STORE.map,
-        content: `<h3>${STORE.bars[i].name}</h3><p>${STORE.bars[i].vicinity}</p>
-        <p>${STORE.bars[i].rating}</p>`
-    })
-    STORE.marker.addListener('click', function(){
-        var infoWindow = new google.maps.InfoWindow({
-            content: STORE.marker.content})
-        infoWindow.open(map, STORE.marker);
-      });}
-}
-
-function getDetails () {
     for (let i = 0; i < STORE.bars.length; i++) {
-    let request = {
-        placeId: STORE.bars[i].place_id,
-        fields: ['url', 'formatted_address', 'formatted_phone_number', 'rating', 'opening_hours', 'website','name']
-      };
-      let service = new google.maps.places.PlacesService($('.results-container').get(0));;
-service.getDetails(request, function(place) 
-{renderResults(place)
-})}    
+        STORE.marker = new google.maps.Marker({
+            position: STORE.bars[i].geometry.location,
+            icon: {
+                url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+            },
+            map: STORE.map,
+            content: `<h3>${STORE.bars[i].name}</h3><p>${STORE.bars[i].vicinity}</p>
+        <a href="https://www.google.com/maps/place/?q=place_id:${STORE.bars[i].place_id}" target="_blank" rel="noopener" style="cursor: pointer; color: rgb(66, 127, 237); text-decoration: none;">View on Google Maps</a>
+        `
+        })
+        STORE.marker.addListener('click', function() {
+            var infoWindow = new google.maps.InfoWindow({
+                content: STORE.marker.content
+            })
+            infoWindow.open(map, STORE.marker);
+        });
+    }
 }
 
-function renderResults (place) {
+function getDetails() {
+    for (let i = 0; i < STORE.bars.length; i++) {
+        let request = {
+            placeId: STORE.bars[i].place_id,
+            fields: ['url', 'formatted_address', 'formatted_phone_number', 'rating', 'opening_hours', 'website', 'name']
+        };
+        let service = new google.maps.places.PlacesService($('.results-container').get(0));;
+        service.getDetails(request, function(place) {
+            renderResults(place)
+        })
+    }
+}
+
+function renderResults(place) {
     console.log(place)
-    $('.results-container').append
-    (`<div class="result-item"><h2>${place.name}</h2>
+    $('.results-container').append(`<div class="result-item"><h2>${place.name}</h2>
     <p><span class="key">Address:</span> ${place.formatted_address}</p>
     <p><span class="key">Phone: </span>${place.formatted_phone_number}</p>
     <p><span class="key">Hours:</span> ${place.weekday_text}</p>
     <p><span class="key">Rating:</span>${place.rating}.</p>
     <div><a class="website-button" href="${place.website}" target="_blank">Visit website</a></div>
 </div></div>`)
-    }
+}
 
-    // function setMapOnAll(map) {
-    //     for (var i = 0; i < STORE.markers.length; i++) {
-    //       STORE.markers[i].setMap(map);
-    //     }
-    //   }
+// function setMapOnAll(map) {
+//     for (var i = 0; i < STORE.markers.length; i++) {
+//       STORE.markers[i].setMap(map);
+//     }
+//   }
 
-    // function clearMarkers() {
-    //     setMapOnAll(null);
-    //   }
+// function clearMarkers() {
+//     setMapOnAll(null);
+//   }
 
-    // function deleteMarkers() {
-    //     clearMarkers();
-    //     STORE.markers = [];}
+// function deleteMarkers() {
+//     clearMarkers();
+//     STORE.markers = [];}
 
- function shiftMap() {
-        var place = STORE.autocomplete.getPlace();
-        if (place === undefined) {
-            $('.lil-error').slideDown(100)
-            $('.results-container').empty()
-        }
-        else if (place.geometry) {
-            $('.lil-error').hide()
-            STORE.map.panTo(place.geometry.location);
-            STORE.map.setZoom(9);
-            getLatLong(place);
-            getResults()
-             $('html, body').animate({
+function shiftMap() {
+    var place = STORE.autocomplete.getPlace();
+    if (place === undefined) {
+        $('.lil-error').slideDown(100)
+        $('.results-container').empty()
+    } else if (place.geometry) {
+        $('.lil-error').hide()
+        $('.more-info').removeClass('hide')
+        STORE.map.panTo(place.geometry.location);
+        STORE.map.setZoom(9);
+        getLatLong(place);
+        getResults()
+        $('html, body').animate({
             scrollTop: $("#map").offset().top
-             }, 2000);
-        } else {
-           document.getElementById('pac-input').placeholder = 'Enter city';
-        }}
-    
+        }, 2000);
+    } else {
+        document.getElementById('pac-input').placeholder = 'Enter city';
+    }
+}
+
 
 
 
 function watchForm() {
-$('form').submit(event => {
-    event.preventDefault();
-     STORE.lat = ''
-    STORE.lng = ''
- var place = STORE.autocomplete.getPlace();
+    $('form').submit(event => {
+        event.preventDefault();
+        STORE.lat = ''
+        STORE.lng = ''
+        var place = STORE.autocomplete.getPlace();
 
- shiftMap()      
-})}
+        shiftMap()
+    })
+}
 
 
 function renderDoc() {

@@ -90,6 +90,10 @@ h1 {
     display: none;
 }
 
+.hide {
+    display: none;
+}
+
 .err {
     z-index: 99;
     position: absolute;
